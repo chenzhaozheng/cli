@@ -1,0 +1,42 @@
+{
+  "name": "@midwayjs/fcli-plugin-fbf",
+  "version": "0.0.1",
+  "main": "dist/index",
+  "typings": "dist/index.d.ts",
+  "dependencies": {
+    "firebase-admin": "^9.8.0",
+    "firebase-functions": "^3.14.1",
+    "@midwayjs/command-core": "^1.2.84",
+    "@midwayjs/serverless-spec-builder": "^1.2.84",
+    "@serverless-devs/core": "*",
+    "fs-extra": "^8.1.0",
+    "globby": "^10.0.2",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "@midwayjs/fcli-plugin-package": "^1.2.84",
+    "jszip": "^3.5.0"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "files": [
+    "plugin.json",
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "lint": "../../node_modules/.bin/eslint .",
+    "test": "../../node_modules/.bin/jest",
+    "build": "tsc --build",
+    "cov": "../../node_modules/.bin/jest --coverage",
+    "ci-test-only": "TESTS=test/lib/cmd/cov.test.js npm run test-local",
+    "ci": "npm run lint && npm run pkgfiles -- --check && npm run ci-test-only && npm run cov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:midwayjs/cli.git"
+  },
+  "license": "MIT",
+  "gitHead": "5783f06ff0298f0e172f801cae053c3fc80813a9"
+}
